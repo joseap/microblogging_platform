@@ -1,0 +1,8 @@
+<h1>WELCOME</h1>
+
+<p>This is a random microblogging website</p>
+
+<h1><%= flash[:loggedout] if flash[:loggedout] %></h1>
+
+<h3><%= link_to "Sign Up", new_user_path %></h3>
+<h3><%= link_to "Log In", log_in_path %></h3>

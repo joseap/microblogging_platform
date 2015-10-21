@@ -1,0 +1,22 @@
+<h1>CREATE NEW USER</h1>
+
+<%= flash[:invalid] if flash[:invalid] %>
+
+<br>
+
+<%= form_for @user do |f| %>
+	<%= f.label "First Name" %>
+	<%= f.text_field :fname %><br><br>
+	<%= f.label "Last Name" %>
+	<%= f.text_field :lname %><br><br>
+	<%= f.label "Username" %>
+	<%= f.text_field :username %><br><br>
+	<%= f.label "Email" %>
+	<%= f.text_field :email %><br><br>
+	<%= f.label "Password" %>
+	<%= f.password_field :password %><br><br>
+	<%= f.label "Confirm Password" %>
+	<%= f.password_field :password_confirmation%><br><br>
+	<%= f.submit "Create User" %><br><br>
+	<%= link_to "Go Back", home_path %>
+<% end %>

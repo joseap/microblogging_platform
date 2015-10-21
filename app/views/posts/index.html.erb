@@ -1,0 +1,25 @@
+<h1>POST INDEX</h1>
+
+<ul>
+	<h3><%= flash[:alert] if flash[:alert] %></h3>
+	<h3><%= flash[:posted] if flash[:posted] %></h3>
+	<h3><%= flash[:updated] if flash[:updated] %></h3>
+	<h3><%= flash[:destroyed] if flash[:destroyed] %></h3>
+</ul>
+
+<h3 class='marginal'><%= link_to 'New Post', new_post_path %></h3>
+
+<% @posts.each do |post| %>
+	<ul>
+		<li><%= post.title %></li>
+		<%= post.body %>
+		<br>
+		<p> Post written by: <%= post.user.username %>
+		<br>
+		<%= link_to 'Edit', edit_post_path(post.id) %>
+		<%= link_to 'Delete', post, data: { confirm: "Are you sure?" }, method: :delete %>
+		<%= link_to 'Comment', new_comment_path %>
+	</ul>
+	<hr>
+
+<% end %>

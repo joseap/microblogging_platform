@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+
+  resources :users, :posts, :follows, :comments
+  resources :sessions, only: [:new, :create, :destroy]
+
+
+
+  # ====== HOME PATH ====== #
+  get 'home' => "home#index"
+  get 'home/main' => "home#main"
+
+  # ====== LOGIN/OUT ====== #
+  get 'log_in' => "sessions#new"
+  get 'log_out' => "sessions#destroy"
+
+  get 'sign_up' => "users#new"
+
+  # ====== COMMENTS ====== #
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

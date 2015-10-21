@@ -1,0 +1,21 @@
+<h1>COMMENT INDEX</h1>
+
+<ul>
+	<h3><%= flash[:alert] if flash[:alert] %></h3>
+	<h3><%= flash[:posted] if flash[:posted] %></h3>
+	<h3><%= flash[:updated] if flash[:updated] %></h3>
+	<h3><%= flash[:destroyed] if flash[:destroyed] %></h3>
+</ul>
+
+<% @comment.each do |comment| %>
+	<ul>
+		<%= comment.body %>
+		<br>
+		<%= link_to 'Edit', edit_comment_path(comment.id) %>
+		<%= link_to 'Delete', comment, data: { confirm: "Are you sure?" }, method: :delete %>
+	</ul>
+	<hr>
+
+<% end %>
+
+
